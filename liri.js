@@ -20,12 +20,13 @@ function concertThis(){
             console.log(venueLocation)
             console.log(eventDate)
             console.log('<--------------------->')
-
         }
     })
     .catch(error => console.log(error));
 }
-concertThis();
+// concertThis();
+
+// <-------------------------> 
 
 // Spotify Stuff
 var Spotify = require('node-spotify-api');
@@ -57,6 +58,7 @@ function spotifyThisSong(){
 // spotifyThisSong();
 
 // <-------------------------> 
+
 // OMDB Stuff
 function movieThis(){
     if(!commandInput){
@@ -86,11 +88,15 @@ function movieThis(){
 }
 // movieThis();
 
-
+// <-------------------------> 
 
 // Do What It Says Stuff
 
-// var fs = require('fs');
+var fs = require('fs');
+fs.writeFile('random.txt', commandInput, function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+  });
 
 
 
