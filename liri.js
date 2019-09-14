@@ -1,7 +1,9 @@
 require("dotenv").config();
 
 var axios = require('axios');
-var commandInput = process.argv.slice(2).join(' ')
+var commandInput = process.argv.slice(3).join(' ')
+var command = process.argv[2]
+// console.log(command)
 var moment = require('moment')
 
 // Concert Stuff
@@ -38,10 +40,6 @@ var spotify = new Spotify({
    
 function spotifyThisSong(){
     spotify.search({ type: 'track', query: commandInput, limit: 1}, function(err, data) {
-      if (err) {
-        console.log('Sorry, no song by that name is available.  Pick a different song.')    
-        return        
-      }
         var songObj = data.tracks.items[0]
         var songName = songObj.name
         var songArtist = songObj.artists[0].name
@@ -52,6 +50,11 @@ function spotifyThisSong(){
         console.log('Song Album: ' + songAlbum); 
         console.log('Song Preview: ' + songPreviewUrl); 
         if(songName === undefined){
+            console.log('Sorry, no song by that name is available.  Pick a different song.')    
+        }
+        if (err) {
+            console.log(err)
+            return        
         }
     });
 }
@@ -93,12 +96,41 @@ function movieThis(){
 // Do What It Says Stuff
 
 var fs = require('fs');
-fs.writeFile('random.txt', commandInput, function (err) {
-    if (err) throw err;
-    console.log('Saved!');
-  });
 
+// fs.writeFile('random.txt', commandInput, function (err) {
+//     if (err) throw err;
+//     console.log('Written!');
+//   });
 
+// fs.appendFile('log.txt', command + ' ' + commandInput + ', ', 'utf8', function (err) {
+//     if (err) throw err;
+//     console.log('Logged!');
+//   });
+
+function doThis(){
+    fs.readFile('random.txt', 'utf8', function (err, data) {
+        if (err) throw err;
+        var randomTextArr = data.split(',')
+        command = randomTextArr[0]
+        commandInput = randomTextArr[1]
+        console.log(command, commandInput)
+    });
+}
+
+switch (command){
+    case 'spotify-this-song':
+        spotifyThisSong()
+        break;
+    case 'concert-this':
+        concertThis();
+        break;
+    case 'movie-this':
+        movieThis();
+        break;
+    case 'do-what-it-says':
+        doThis();
+        break;
+}
 
 
 
