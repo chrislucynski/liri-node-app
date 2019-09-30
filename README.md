@@ -36,7 +36,10 @@ See below for an example of the correct format for running a command:
 
 ### Include screenshots, gifs or videos of the app functioning
 
-<!-- <----------------------------------> -->
+![](images/spotify-this-song.gif)
+![](images/concert-this.gif)
+![](images/movie-this.gif)
+![](images/do-what-it-says.gif)
 
 ### Contain a link to a deployed version of the app
 

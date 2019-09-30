@@ -7,7 +7,6 @@ var command = process.argv[2];
 var moment = require("moment");
 
 // Concert Stuff
-
 function concertThis(artist) {
   console.log(artist);
   var concertURL =
@@ -33,7 +32,6 @@ function concertThis(artist) {
     })
     .catch(error => console.log(error));
 }
-// concertThis();
 
 // <------------------------->
 
@@ -67,7 +65,6 @@ function spotifyThisSong(song) {
     }
   });
 }
-// spotifyThisSong();
 
 // <------------------------->
 
@@ -98,18 +95,16 @@ function movieThis(movie) {
     console.log("Actors: " + movieActor);
   });
 }
-// movieThis();
 
 // <------------------------->
 
 // Do What It Says Stuff
-
 var fs = require("fs");
 
-// fs.appendFile('log.txt', command + ' ' + commandInput + ', ', 'utf8', function (err) {
-//     if (err) throw err;
-//     console.log('Logged!');
-//   });
+fs.appendFile('log.txt', command + ' ' + commandInput + ', ', 'utf8', function (err) {
+    if (err) throw err;
+    console.log('Logged!');
+  });
 
 function doThis() {
   fs.readFile("random.txt", "utf8", function(err, data) {
@@ -118,22 +113,18 @@ function doThis() {
     command = randomTextArr[0];
     commandInput = randomTextArr[1];
     switchFunction(command, commandInput);
-    console.log("do-this function running");
   });
 }
 
 function switchFunction(command, commandInput) {
   switch (command) {
     case "spotify-this-song":
-      console.log("spotify-this-song is targeted");
       spotifyThisSong(commandInput);
       return true;
     case "concert-this":
-      console.log("concert-this is targeted");
       concertThis(commandInput);
       return true;
     case "movie-this":
-      console.log("movie-this is targeted");
       movieThis(commandInput);
       return true;
   }
@@ -142,7 +133,6 @@ function switchFunction(command, commandInput) {
 
 function switchFunctionAll(command, commandInput) {
   if (!switchFunction(command, commandInput) && command === "do-what-it-says") {
-    console.log("switch-function-all");
     doThis();
   }
 }
