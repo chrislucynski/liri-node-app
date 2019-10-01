@@ -26,22 +26,19 @@ After the packages have been installed, the user is ready to run commands from t
 For the user input, use the following instructions:
 
 If you are using the `spotify-this-song` command, type in the name of the song.
+![](images/spotify-this-song.gif)
 If you are using the `concert-this` command, type in the name of the artist.
+![](images/concert-this.gif)
 If you are using the `movie-this` command, type in the name of the movie.
+![](images/movie-this.gif)
 If you are using the `do-what-it-says` command, you will not need to type in additional input.
+![](images/do-what-it-says.gif)
 
 See below for an example of the correct format for running a command:
 
 `node liri.js movie-this The Matrix`
 
-### Include screenshots, gifs or videos of the app functioning
-
-![](images/spotify-this-song.gif)
-![](images/concert-this.gif)
-![](images/movie-this.gif)
-![](images/do-what-it-says.gif)
-
-### Contain a link to a deployed version of the app
+### Link to the deployed version of the app
 
 https://github.com/chrislucynski/liri-node-app
 
